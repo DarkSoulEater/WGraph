@@ -1,4 +1,4 @@
-#include "cvec.h"
+#include "Math/cvec.h"
 #include <cmath>
 #include <cstdio>
 
@@ -12,5 +12,5 @@ void cVecDtor(cVec *vec) {
 }
 
 void cVecDump(const cVec *vec) {
-    printf("[VEC] = {.x=%d, .y=%d}\n", vec->x, vec->y);
+    printf("[VEC] = {.x=%lf, .y=%lf}\n", vec->x, vec->y);
 }
