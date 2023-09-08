@@ -13,7 +13,7 @@ BUILD = Debug
 # ------------------------------------------------------------------------------------------
 
 # Library options
-LIBS = SSE # SFML
+LIBS = SSE SFML
 
 # Activate SSE
 ifeq ($(filter SSE, $(LIBS)), SSE)
@@ -26,7 +26,7 @@ LIB_DEPEND = boost_program_options
 
 # Include SFML
 ifeq ($(filter SFML, $(LIBS)), SFML)
-	LIB_PATH += 
+	LIB_PATH +=
 	LIB_DEPEND += sfml-audio  sfml-graphics  sfml-network  sfml-system  sfml-window
 endif
 
@@ -53,7 +53,9 @@ DEPENDENS = $(addprefix $(BIN_DIR)/, $(SRC:.cpp=.d))
 ifeq ($(BUILD), Debug)
 	CXXFLAGS += -O1 -g -fdiagnostics-color=always
 	BUILD_PATH = build-debug
+
 	OBJ = $(addprefix $(BIN_DIR)/, $(SRC:.cpp=d.o))
+	DEPENDENS = $(addprefix $(BIN_DIR)/, $(SRC:.cpp=d.d))
 else
 	CXXFLAGS += -Os -s -DNDEBUG
 	BUILD_PATH = build-release
@@ -93,13 +95,19 @@ $(BIN_DIR)/%.o: %.cpp Makefile
 
 # Compilation source for debug
 $(BIN_DIR)/%d.o: %.cpp Makefile
-	@echo "[$< ($(BUILD))]"
+	@echo "[ Compile $< ($(BUILD))]"
+	@mkdir -p bin
 	@$(CC) $< -c -o $@ $(CXXFLAGS)
 
 # Updating dependencies
 $(BIN_DIR)/%.d: %.cpp Makefile
 	@mkdir -p bin
 	@$(CC) $< -MM -MT '$(BIN_DIR)/$*.o $(BIN_DIR)/$*.d' -MF $@ $(CXXFLAGS)
+
+# Updating dependencies for debug
+$(BIN_DIR)/%d.d: %.cpp Makefile
+	@mkdir -p bin
+	@$(CC) $< -MM -MT '$(BIN_DIR)/$*d.o $(BIN_DIR)/$*d.d' -MF $@ $(CXXFLAGS)
 
 # ------------------------------------------------------------------------------------------
 .PHONY: init gitInit clean
