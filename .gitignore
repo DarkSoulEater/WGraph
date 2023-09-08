@@ -33,6 +33,8 @@
 
 # Folder
 .vscode
-bulid-debug
-build-release
+bulid-debug/**
+build-release/*
 bin
+
+WGraph
