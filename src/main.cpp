@@ -3,9 +3,14 @@
 #include "CoordsSys.h"
 #include "Math/Vector2.h"
 #include "Arrow.h"
+#include "Camera.h"
 
 int main(int argc, char *argv[]) {
     //ParseArgs(argc, argv);
+
+    Camera camera;
+
+    return 0;
 
     Window main_window(1100, 1100);
 
@@ -52,3 +57,6 @@ int main(int argc, char *argv[]) {
 
 // RVO - NRVO -> Copy Elision
 // CatmulRom
+// bool vector, interpol vector
+// диффузное рассеяное бликовое 
+// рельеф чем небольшой рандом координат (normal mapping)
