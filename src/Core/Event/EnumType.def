@@ -1,0 +1,17 @@
+// #define DefineEnumType(NAME, CODE)
+
+DefineEventType(None,          0)
+DefineEventType(Mouse,         1)
+DefineEventType(Key,           2)
+DefineEventType(Draw,          3)
+DefineEventType(Update,        4)
+DefineEventType(ButtonPressed, 10)
+DefineEventType(BarScrolled,   11)
+
+DefineEventType(UI,            500)
+DefineEventType(MaxUI,         999)
+
+DefineEventType(User,          1000)
+DefineEventType(MaxUser,       5000)
+
+#undef DefineEventType

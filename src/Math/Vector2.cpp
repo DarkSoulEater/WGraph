@@ -10,7 +10,7 @@ Vector2 operator-(const Vector2 &lhs, const Vector2 &rhs) {
     return Vector2(lhs.X - rhs.X, lhs.Y - rhs.Y);
 }
 
-Vector2 Vector2::operator-() {
+Vector2 Vector2::operator-() const {
     return Vector2(-X, -Y);
 }
 
@@ -43,7 +43,7 @@ float Vector2::Len() const {
 }
 
 float Vector2::Dot(const Vector2 &other) const {
-    return X * other.X - Y * other.Y;
+    return X * other.X + Y * other.Y;
 }
 
 Vector2 Vector2::Normal() const {
@@ -79,4 +79,8 @@ Vector2 Vector2::Normalize(const Vector2 &vec) {
     Vector2 tmp = Vector2(vec);
     tmp.Normalize();
     return tmp;
+}
+
+Vector2 Vector2::Reflect(const Vector2 &vec, const Vector2 &normal) {
+    return vec - 2.f * normal * normal.Dot(vec);
 }
