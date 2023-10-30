@@ -1,7 +1,7 @@
 #ifndef ___CIRCLE_H___
 #define ___CIRCLE_H___
 
-#include "Photoshop/UI/Canvas/Figure/Figure.h"
+#include "Photoshop/Canvas/Figure/Figure.h"
 #include "Math/Vector2.h"
 #include "Photoshop/Tool/Color.h"
 
