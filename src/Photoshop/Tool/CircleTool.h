@@ -2,7 +2,7 @@
 #define ___CIRCLETOOL_H___
 
 #include "Photoshop/Tool/Tool.h"
-#include "Photoshop/UI/Canvas/Figure/Circle.h"
+#include "Photoshop/Canvas/Figure/Circle.h"
 
 class CircleTool : public Tool {
 public:

@@ -2,7 +2,7 @@
 #define ___BRUSHTOOL_H___
 
 #include "Photoshop/Tool/Tool.h"
-#include "Photoshop/UI/Canvas/Figure/BrokenLine.h"
+#include "Photoshop/Canvas/Figure/BrokenLine.h"
 
 class BrushTool : public Tool {
 public:
