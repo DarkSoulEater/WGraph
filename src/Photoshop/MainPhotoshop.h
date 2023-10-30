@@ -5,11 +5,14 @@
 #include "UI/WidgetsHandler.h"
 #include "UI/PushButton.h"
 #include "Photoshop/UI/Clock.h"
-#include "Photoshop/UI/Canvas/Canvas.h"
+#include "Photoshop/UI/CanvasView.h"
 #include "Photoshop/UI/Palette.h"
 
 #include "Core/Action/AcDebug.h"
 #include "Photoshop/Action/ActCloseWindow.h"
+#include "Photoshop/UI/CanvasView.h"
+
+#include "Photoshop/UI/FilterPaletteView.h"
 
 int MainPhotoshop() {
     Vector2 window_size(1200, 800);
@@ -22,11 +25,13 @@ int MainPhotoshop() {
     b1->SetPosition({200, 100});
 
     auto pallete = static_cast<Palette*>(handler.AddWidget(new Palette(window)).get());
+    auto filter_palette = static_cast<FilterPaletteView*>(handler.AddWidget(new FilterPaletteView).get());
 
-    handler.AddWidget(new Canvas(pallete->GetToolPalette(), Vector2(300, 300), Vector2(700, 300)));
-    handler.AddWidget(new Canvas(pallete->GetToolPalette(), Vector2(400, 400), Vector2(400, 300)));
+    // handler.AddWidget(new Canvas(pallete->GetToolPalette(), Vector2(300, 300), Vector2(700, 300)));
+    // handler.AddWidget(new Canvas(pallete->GetToolPalette(), Vector2(400, 400), Vector2(400, 300)));
+    handler.AddWidget(new CanvasView(pallete->GetToolPalette(), filter_palette->GetFilterPalette(), Vector2(600, 600), Vector2(200, 100)));
 
-    handler.AddWidget(new Clock);
+    // handler.AddWidget(new Clock);
 
     window.Run();
     
