@@ -38,7 +38,7 @@ void Widget::OnDrawEvent(const DrawEvent &event) {
     bounds_rect.setPosition(MapToGlobal());
     bounds_rect.setOrigin(GetOrigin());
     bounds_rect.setFillColor(sf::Color(0));
-    bounds_rect.setOutlineThickness(1.f);
+    bounds_rect.setOutlineThickness(-1.f);
     bounds_rect.setOutlineColor(sf::Color::Red);
 
     // Draw bounds rect
