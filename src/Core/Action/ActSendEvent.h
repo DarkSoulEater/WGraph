@@ -1,8 +1,8 @@
 #ifndef ___ACTSENDEVENT_H___
 #define ___ACTSENDEVENT_H___
 
+#include <memory>
 #include "Core/Object.h"
-#include "EmitGase/AtomBox.h"
 #include "Core/Action/Action.h"
 #include "Core/Event/Event.h"
 
